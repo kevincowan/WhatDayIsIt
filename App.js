@@ -12,6 +12,8 @@ import {
   View
 } from 'react-native';
 
+import { Col, Row, Grid } from "react-native-easy-grid";
+
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
     'Cmd+D or shake for dev menu',
@@ -21,18 +23,68 @@ const instructions = Platform.select({
 
 type Props = {};
 export default class App extends Component<Props> {
+
+  checkDay(day){
+    const currentDay = new Date().toString().split(' ')[0];
+    return (currentDay === day);
+  }
+
   render() {
     return (
+
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>
+        <Grid>
+
+          <Row backgroundColor="indianred">
+          <View style={styles.container}>
+            <Text style={styles.rowtext}>Monday</Text>
+            <View style={(this.checkDay('Mon'))? styles.circle : styles.nocircle}/>
+            </View>
+          </Row>
+
+          <Row backgroundColor="yellow">
+          <View style={styles.container}>
+            <Text style={styles.rowtext}>Tuesday</Text>
+            <View style={(this.checkDay('Tue'))? styles.circle : styles.nocircle}/>
+            </View>
+          </Row>
+
+          <Row backgroundColor="skyblue">
+          <View style={styles.container}>
+            <Text style={styles.rowtext}>Wednesday</Text>
+            <View style={(this.checkDay('Wed'))? styles.circle : styles.nocircle}/>
+            </View>
+          </Row>
+
+          <Row backgroundColor="green">
+          <View style={styles.container}>
+            <Text style={styles.rowtext}>Thursday</Text>
+            <View style={(this.checkDay('Thu'))? styles.circle : styles.nocircle}/>
+            </View>
+          </Row>
+
+          <Row backgroundColor="grey">
+          <View style={styles.container}>
+            <Text style={styles.rowtext}>Friday</Text>
+            <View style={(this.checkDay('Fri'))? styles.circle : styles.nocircle}/>
+            </View>
+          </Row>
+
+          <Row backgroundColor="pink">
+          <View style={styles.container}>
+            <Text style={styles.rowtext}>Saturday</Text>
+            <View style={(this.checkDay('Sat'))? styles.circle : styles.nocircle}/>
+            </View>
+          </Row>
+
+          <Row backgroundColor="orange">
+          <View style={styles.container}>
+            <Text style={styles.rowtext}>Sunday</Text>
+            <View style={(this.checkDay('Sun'))? styles.circle : styles.nocircle}/>
+            </View>
+          </Row>
+
+        </Grid>
       </View>
     );
   }
@@ -41,18 +93,28 @@ export default class App extends Component<Props> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    //margin: 15,
+    //marginTop: 20,
+    borderColor: 'white',
+    borderWidth: 1,
   },
-  welcome: {
-    fontSize: 20,
+  rowtext: {
+    fontSize: 30,
     textAlign: 'center',
     margin: 10,
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
+  circle: {
+    width: 60,
+    height: 60,
+    borderRadius: 60/2,
+    backgroundColor: 'white',
+    margin: 20,
+    borderColor: 'black',
+    borderWidth: 1,
   },
+  nocircle: {
+  }
 });
