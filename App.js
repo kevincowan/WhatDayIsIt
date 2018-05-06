@@ -55,7 +55,7 @@ export default class App extends Component<Props> {
             </View>
           </Row>
 
-          <Row backgroundColor="grey">
+          <Row backgroundColor="purple">
           <View style={styles.container}>
             <Text style={styles.rowtext}>Friday</Text>
             <View style={(this.checkDay('Fri'))? styles.circle : styles.nocircle}/>
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
   },
   rowtext: {
-    fontSize: 30,
+    fontSize: 40,
     textAlign: 'center',
     margin: 10,
   },
