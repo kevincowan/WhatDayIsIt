@@ -68,6 +68,8 @@ cd android
 cd ..
 ```
 
+To install on an Android device.
+
 ```
 adb install -r android/app/build/outputs/apk/app-debug.apk
 ```
@@ -83,5 +85,7 @@ Tested on
 
 ## To do
 
+- Change icon
+- Change name of app and apk file
 - Test on Apple HW
 - Build release signed versions of app for Android and iOS
