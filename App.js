@@ -1,20 +1,34 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
+
 import {
   Platform,
   StyleSheet,
   Text,
-  View
+  View,
+  AppState
 } from 'react-native';
+
 import { Col, Row, Grid } from "react-native-easy-grid";
 
 type Props = {};
 export default class App extends Component<Props> {
+
+  state = {
+    date: new Date
+  }
+
+  componentDidMount() {
+    AppState.addEventListener('change', this._handleAppStateChange);
+  }
+
+  componentWillUnmount() {
+    AppState.removeEventListener('change', this._handleAppStateChange);
+  }
+
+  _handleAppStateChange = (nextAppState) => {
+    this.setState({date:new Date});
+    //console.log("***" + nextAppState)
+  }
 
   checkDay(day){
     const currentDay = new Date().toString().split(' ')[0];
@@ -26,6 +40,8 @@ export default class App extends Component<Props> {
 
       <View style={styles.container}>
         <Grid>
+
+          {/* <Text>{this.state.date.toString()}</Text> */}
 
           <Row backgroundColor="indianred">
           <View style={styles.container}>
