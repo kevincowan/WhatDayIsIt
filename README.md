@@ -74,6 +74,22 @@ To install on an Android device.
 adb install -r android/app/build/outputs/apk/app-debug.apk
 ```
 
+## Debugging
+
+This is a very useful debugging tool - https://github.com/jhen0409/react-native-debugger
+
+Install with this command
+
+```
+brew update && brew cask install react-native-debugger
+```
+
+Run with this command
+
+```
+open "rndebugger://set-debugger-loc?host=localhost&port=8081"
+```
+
 ## Testing
 
 Tested on
